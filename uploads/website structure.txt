@@ -1,0 +1,43 @@
+Develop a PHP application allowing a user to:
+
+Manage their income and expenses
+
+Track their balance
+
+View a budget history and summary
+
+
+####
+
+Fonctionnalités attendues:
+
+Page d'authentification
+Page d'inscription
+Gestion des transactions:
+Ajouter une transaction :Une transaction est définie par :type (dépense ou revenu),montant,catégorie,description,date transaction
+Supprimer une transaction
+modifier une transaction
+afficher l'historique des transactions triés par date,ajouter un filtre sur les années et les mois
+Tableau de bord:
+Afficher le solde actuel
+Résumé du mois en cours : total des revenus / dépenses
+Somme totale des dépenses/revenus par catégorie
+Afficher la dépense la plus haute ainsi que le revenu le plus grand du mois en cours
+NB:
+
+Pour assurer une meilleure sécurité de vos données veillez à hasher les mots de passe
+Utiliser un fichier config.php pour la configuration de connection avec la base de données
+Tous les formulaires devraient etre validés avec un affichage personnalisé de messages d'erreurs
+Veiller à nettoyer les données avant de les insérer dans la base de données
+Utiliser des fonctions pour mieux structurer votre code,les classer dans des fichiers 'user,transactions,dashboard':
+addUser($user,$connection)
+log($email,$password,$connection)
+addTransaction($transaction,$connection)
+deleteTransaction($idTransaction,$connection)
+editTransaction($idTransaction,$newTransaction,$connection)
+listTransactions($connection)
+listTransactionsbyMonth($connection,$year,$month)
+soldUser($idUser,$connection)
+detailsUser($id,$connection)
+totalIncomesByCategory($category,$connection)
+totalExpensesByCategory($category,$connection)
