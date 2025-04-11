@@ -1,0 +1,4 @@
+$categories = [
+  'revenu' => ['Salaire', 'Bourse', 'Ventes', 'Autres'],
+  'depense' => ['Logement', 'Transport', 'Alimentation', 'Santé', 'Divertissement', 'Éducation', 'Autres']
+];
