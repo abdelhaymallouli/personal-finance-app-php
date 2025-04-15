@@ -20,7 +20,6 @@ function addUser($user, $connection) {
         return "Email already registered";
     }
 
-    // Insert into database
     $stmt = $connection->prepare("INSERT INTO users (nom, email, password) VALUES (?, ?, ?)");
     $stmt->execute([$name, $email, $password]);
 
@@ -28,18 +27,16 @@ function addUser($user, $connection) {
 }
 
 function login($email, $password, $connection) {
-    $stmt = $connection->prepare("SELECT id, nom, password FROM users WHERE email = ?");
-    $stmt->bind_param("s" ,$email);
-    $stmt->execute();
-    $result = $stmt->get_result();
+    $stmt = $connection->prepare("SELECT id, nom, password FROM users WHERE email = :email");
+    $stmt->execute(['email' => $email]);
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if ($result->num_rows === 1) {
-        $user = $result->fetch_assoc();
+    if ($user && password_verify($password, $user['password'])) {
+        return $user;
+    }
 
-        if(password_verify($password, $user['password'])){
-            return 
-        }
-    } 
+    return false;
 }
+
 
 ?>

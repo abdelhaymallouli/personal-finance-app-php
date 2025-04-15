@@ -35,7 +35,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     <meta charset="UTF-8">
     <title>Inscription</title>
 </head>
-<body>
+
     <h2>Créer un compte</h2>
     <form method="POST" action="">
         <label>Nom:</label><br>
@@ -47,5 +47,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         <button type="submit">S'inscrire</button>
     </form>
     <p style="color:red;"><?= $message ?></p>
+    <a href="./login.php">login</a>
 </body>
 </html>

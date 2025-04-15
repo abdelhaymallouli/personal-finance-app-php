@@ -1,13 +1,13 @@
 <?php
 session_start();
-require_once __DIR__ ."/../config.php";
+require_once __DIR__ . '/../config/config.php';
 require_once __DIR__ ."/../includes/user.php";
 
 $message = '';
 
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
     $email = $_POST['email'];
-    $password = $_POST['passowrd'];
+    $password = $_POST['password'];
 
 
     if(empty($email) || empty($password)){
@@ -35,7 +35,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     <meta charset="UTF-8">
     <title>Connexion</title>
 </head>
-<body>
     <h2>Se connecter</h2>
     <form method="POST" action="">
         <label>Email:</label><br>
@@ -45,5 +44,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         <button type="submit">Connexion</button>
     </form>
     <p style="color:red;"><?= $message ?></p>
+    <p>GO back to <a href="./register.php">Sign-up</a></p>
 </body>
 </html>
