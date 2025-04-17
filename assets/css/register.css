@@ -1,0 +1,203 @@
+
+:root {
+    --dark-blue: #111827;
+    --light-blue: #3b82f6;
+    --button-hover: #2563eb;
+    --input-bg: #1f2937;
+    --text-light: #f9fafb;
+    --text-gray: #9ca3af;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+    background-color: var(--dark-blue);
+    color: var(--text-light);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signup-container {
+    display: flex;
+    width: 900px;
+    height: auto;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.image-side {
+    flex: 1;
+    background-image: url('../../uploads/img/santa-maddalena-dolomites-rangesouth-tyrol.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    color: white;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.image-side::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(17, 24, 39, 0.2), rgba(17, 24, 39, 0.6));
+    z-index: 0;
+}
+
+.logo {
+    position: relative;
+    z-index: 1;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.logo img {
+    width: 32px;
+    height: 32px;
+    margin-right: 10px;
+}
+
+.welcome-text {
+    position: relative;
+    z-index: 1;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.social-icons {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    gap: 15px;
+    margin-bottom: -90%;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s;
+}
+
+.social-icon:hover {
+    background: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+}
+
+.help-links {
+    position: relative;
+    z-index: 1;
+    font-size: 14px;
+}
+
+.help-links a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.help-links a:hover {
+    text-decoration: underline;
+}
+
+.form-side {
+    flex: 1;
+    background-color: var(--dark-blue);
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.form-header {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 6px;
+    background-color: var(--input-bg);
+    border: 1px solid #374151;
+    color: white;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus {
+    border-color: var(--light-blue);
+    outline: none;
+}
+
+.error-message {
+    color: #ef4444;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.submit-button {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--light-blue);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+}
+
+.submit-button:hover {
+    background-color: var(--button-hover);
+}
+
+.form-footer {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: var(--text-gray);
+}
+
+.form-footer a {
+    color: var(--light-blue);
+    text-decoration: none;
+    margin-left: 5px;
+}
+
+.form-footer a:hover {
+    text-decoration: underline;
+}
