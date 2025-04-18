@@ -39,13 +39,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (empty($errors)) {
         if (addTransaction($connection, $user_id, $category_id, $montant, $description, $date_transaction)) {
-            header('Location: dashboard.php');
+            echo "<script>
+                window.parent.postMessage('closeModal', '*');
+            </script>";
             exit;
         } else {
             $errors[] = "Échec de l'ajout de la transaction.";
         }
     }
 }
+
+
+
 ?>
 
 
@@ -69,11 +74,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <label>Catégorie :</label>
     <select name="category_id" required>
-        <!-- You will need to fetch categories from DB -->
-        <option value="1">Salaire</option>
-        <option value="2">Nourriture</option>
-        <!-- Add more dynamically later -->
-    </select><br>
+    <option value="">-- Sélectionner --</option>
+    <?php foreach ($categories as $cat): ?>
+        <option value="<?= $cat['id'] ?>" 
+            <?= ($_POST['category_id'] ?? '') == $cat['id'] ? 'selected' : '' ?>>
+            <?= htmlspecialchars($cat['nom']) ?> (<?= $cat['type'] ?>)
+        </option>
+    <?php endforeach; ?>
+</select>
 
     <label>Description :</label>
     <input type="text" name="description" value="<?= htmlspecialchars($_POST['description'] ?? '') ?>"><br>

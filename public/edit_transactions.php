@@ -32,7 +32,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     $date_transaction = $_POST['date_transaction'];
 
     if (updateTransaction($connection, $id, $user_id, $category_id, $montant, $description, $date_transaction)) {
-        header('Location: dashboard.php?success=Transaction updated successfully.');
+        echo "<script>parent.postMessage('closeModal', '*');</script>";
+
         exit();
     } else {
         echo 'Failed to update transaction.';
