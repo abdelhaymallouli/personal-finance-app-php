@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             header("Location: dashboard.php");
             exit();
         } else {
-            $errors[] = "Email ou mot de passe incorrect.";
+            $errors["incorrect"] = "Email ou mot de passe incorrect.";
         }
     }
 }

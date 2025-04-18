@@ -4,7 +4,7 @@ require_once '../config/config.php';
 require_once '../includes/transactions.php';
 
 if(!isset($_SESSION['user_id'])) {
-    header('location: login.php');
+    header('location: index.php');
     exit;
 }
 

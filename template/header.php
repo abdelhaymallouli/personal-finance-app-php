@@ -8,7 +8,6 @@ $currentPage = basename($_SERVER['PHP_SELF']);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Transaction History - Enfix</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <link rel="stylesheet" href="../assets/css/style.css?v=<?php echo time(); ?>">
     <style>
@@ -78,6 +77,40 @@ $currentPage = basename($_SERVER['PHP_SELF']);
             gap: 20px;
             margin-left: auto; 
         }
+
+
+                .user-dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 50px;
+            right: 0;
+            background-color: var(--background-dark);
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+            padding: 10px 0;
+            min-width: 150px;
+            z-index: 100;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 10px 20px;
+            color: white;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+
+        .dropdown-menu a:hover {
+            border-radius: 8px;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
                 
         .theme-toggle, .notifications, .user-profile {
             width: 40px;
@@ -129,11 +162,11 @@ $currentPage = basename($_SERVER['PHP_SELF']);
 <body>
     <!-- Sidebar -->
     <div class="sidebar">
-    <div class="sidebar-logo">
+    <a href="index.php"><div class="sidebar-logo">
         <svg width="32" height="32" viewBox="0 0 24 24" fill="white">
             <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
         </svg>
-    </div>
+    </div></a>
     <div class="sidebar-nav">
         <a href="dashboard.php" title="Dashboard" class="<?php echo basename($_SERVER['PHP_SELF']) == 'dashboard.php' ? 'active' : ''; ?>">
             <i class="fas fa-chart-pie"></i>
@@ -155,12 +188,20 @@ $currentPage = basename($_SERVER['PHP_SELF']);
     <div class="main-content">
         <!-- Header -->
         <div class="header">
-
+        <h2>Welcome, <?php echo htmlspecialchars($_SESSION['user_name']); ?>!</h2>
             <div class="header-right">
 
-                <div class="user-profile">
-                    <i class="fas fa-user"></i>
-                </div>
+            <div class="user-dropdown">
+            <div class="user-profile" onclick="toggleDropdown()">
+                <i class="fas fa-user"></i>
+            </div>
+            <div class="dropdown-menu" id="dropdownMenu">
+                <a href="#">Profile</a>
+                <a href="#">Settings</a>
+                <a href="logout.php">Logout</a>
+            </div>
+        </div>
+
             </div>
         </div>
         <!-- Navigation -->
@@ -172,4 +213,20 @@ $currentPage = basename($_SERVER['PHP_SELF']);
 </nav>
 
     </body>
+
+    <script>
+    function toggleDropdown() {
+        const menu = document.getElementById("dropdownMenu");
+        menu.style.display = (menu.style.display === "block") ? "none" : "block";
+    }
+
+    // Close dropdown if clicked outside
+    window.onclick = function(event) {
+        const dropdown = document.getElementById("dropdownMenu");
+        if (!event.target.closest('.user-dropdown')) {
+            dropdown.style.display = "none";
+        }
+    }
+</script>
+
     </html>

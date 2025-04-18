@@ -1,0 +1,57 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
+  <!-- Phone outline -->
+  <rect x="100" y="50" width="200" height="400" rx="20" fill="#0f172a" stroke="#1e293b" stroke-width="8"/>
+  
+  <!-- Screen -->
+  <rect x="115" y="70" width="170" height="360" rx="10" fill="#1e293b" stroke="#475569" stroke-width="2"/>
+  
+  <!-- Phone camera and speaker -->
+  <circle cx="200" cy="60" r="5" fill="#94a3b8"/>
+  
+  <!-- App header -->
+  <rect x="115" y="70" width="170" height="60" rx="8" fill="#4338ca"/>
+  <text x="200" y="105" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#f8fafc" text-anchor="middle">FinTrack</text>
+  
+  <!-- Balance widget -->
+  <rect x="130" y="145" width="140" height="80" rx="12" fill="#4f46e5" stroke="#4338ca" stroke-width="1"/>
+  <text x="200" y="170" font-family="Arial, sans-serif" font-size="14" fill="#f8fafc" text-anchor="middle">Total Balance</text>
+  <text x="200" y="200" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#f8fafc" text-anchor="middle">$12,458.32</text>
+  
+  <!-- Chart area -->
+  <rect x="130" y="240" width="140" height="100" rx="12" fill="#1e293b" stroke="rgba(255, 255, 255, 0.05)" stroke-width="1"/>
+  
+  <!-- Line chart -->
+  <polyline points="140,310 155,290 170,300 185,270 200,280 215,260 230,250 245,270 260,240" stroke="#4f46e5" stroke-width="3" fill="none"/>
+  <text x="200" y="255" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">Monthly Overview</text>
+  
+  <!-- Transaction list -->
+  <rect x="130" y="355" width="140" height="25" rx="8" fill="#1e293b" stroke="rgba(255, 255, 255, 0.05)" stroke-width="1"/>
+  <circle cx="145" cy="367" r="8" fill="#10b981"/>
+  <text x="185" y="372" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">Income</text>
+  <text x="240" y="372" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#10b981" text-anchor="middle">+$750</text>
+  
+  <rect x="130" y="385" width="140" height="25" rx="8" fill="#1e293b" stroke="rgba(255, 255, 255, 0.05)" stroke-width="1"/>
+  <circle cx="145" cy="397" r="8" fill="#ef4444"/>
+  <text x="185" y="402" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">Groceries</text>
+  <text x="240" y="402" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#ef4444" text-anchor="middle">-$120</text>
+  
+  <!-- Bottom navigation -->
+  <rect x="115" y="430" width="170" height="50" rx="0" fill="#0f172a"/>
+  
+  <!-- Nav icons -->
+  <circle cx="145" cy="455" r="12" fill="#475569"/>
+  <circle cx="200" cy="455" r="12" fill="#4f46e5"/>
+  <circle cx="255" cy="455" r="12" fill="#475569"/>
+  
+  <!-- Finance elements floating around phone -->
+  <circle cx="70" cy="150" r="15" fill="#4f46e5" opacity="0.3"/>
+  <circle cx="320" cy="180" r="20" fill="#4338ca" opacity="0.3"/>
+  <circle cx="80" cy="350" r="25" fill="#4f46e5" opacity="0.2"/>
+  <circle cx="330" cy="320" r="18" fill="#4338ca" opacity="0.3"/>
+  
+  <!-- Dollar symbols -->
+  <text x="70" y="155" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#f8fafc" text-anchor="middle">$</text>
+  <text x="320" y="185" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#f8fafc" text-anchor="middle">$</text>
+  <text x="80" y="355" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#f8fafc" text-anchor="middle">$</text>
+  <text x="330" y="325" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#f8fafc" text-anchor="middle">$</text>
+</svg>

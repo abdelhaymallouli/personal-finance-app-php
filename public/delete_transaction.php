@@ -4,7 +4,7 @@ require_once '../includes/transactions.php';
 require_once '../config/config.php';
 
 if (!isset($_SESSION['user_id'])) {
-    header('location: login.php');
+    header('location: index.php');
     exit;
 }
 
@@ -13,7 +13,7 @@ if(isset($_GET['id'])) {
     $user_id = $_SESSION['user_id'];
 
     if(deleteTransaction($connection, $transaction_id, $user_id)) {
-        header('Location: dashboard.php?success=Transaction successfully deleted.');
+        header('Location: transactions.php?success=Transaction successfully deleted.');
         exit();
     } else {
         echo "Error deleting transaction.";
