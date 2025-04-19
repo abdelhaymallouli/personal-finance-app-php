@@ -47,7 +47,7 @@ include '../template/header.php';
     <h1 class="page-title"><i class="fas fa-exchange-alt"></i> Transaction History</h1>
     
     <div class="action-bar">
-        <a href="add_transaction.php" class="btn btn-success">
+        <a href="#" class="btn btn-success">
             <i class="fas fa-plus"></i> Add Transaction
         </a>
     </div>
