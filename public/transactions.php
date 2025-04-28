@@ -102,9 +102,6 @@ include '../template/header.php';
                 <i class="fas fa-receipt"></i>
                 <h3>No transactions found</h3>
                 <p>There are no transactions matching your filters. Try adjusting your filters or add new transactions.</p>
-                <a href="add_transaction.php" class="btn btn-primary">
-                    <i class="fas fa-plus"></i> Add First Transaction
-                </a>
             </div>
         <?php else: ?>
             <table class="transactions-table">
