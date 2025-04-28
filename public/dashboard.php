@@ -21,17 +21,16 @@ $month = $_GET['month'] ?? date('m');
 // Get the balance
 $balance = soldUser($connection);
 
-$totalIncomes = totalIncomes($connection, $user_id, $year, $month);
-$totalExpenses = totalExpenses($connection, $user_id, $year, $month);
+// Get the current month summary: total income and expenses
+$totalIncomes = totalIncomesByCategory('Salaire', $connection); 
+$totalExpenses = totalExpensesByCategory('Transport', $connection); 
 
 // Calculate period change (could be profit/loss)
 $periodChange = $totalIncomes - $totalExpenses;
 
 // Get income and expenses by category
-$income_categories = ['Salaire', 'Bourse', 'Ventes']; 
-$expenses_categories = ['Transport', 'Alimentation', 'Logement', 'Santé', 'Education', 'Divertissement']; 
-
-
+$income_categories = ['Salaire', 'Investissement', 'Autre']; 
+$expenses_categories = ['Transport', 'Alimentation', 'Logement', 'Healthcare', 'Education', 'Clothes']; 
 
 $incomesByCategory = [];
 foreach ($income_categories as $category) {
@@ -42,7 +41,6 @@ $expensesByCategory = [];
 foreach ($expenses_categories as $category) {
     $expensesByCategory[$category] = totalExpensesByCategory($category, $connection);
 }
-
 
 // Get the highest income and expense for the current month
 $highest_income = highestIncome($connection, $user_id, $year, $month);
@@ -147,8 +145,8 @@ include '../template/header.php';
                 'Transport' => 'transport',
                 'Alimentation' => 'food',
                 'Logement' => 'housing',
-                'Healthcare' => 'Santé',
-                'Education' => 'Éducation',
+                'Healthcare' => 'healthcare',
+                'Education' => 'education',
                 'Clothes' => 'clothes'
             ];
             
