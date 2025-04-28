@@ -9,10 +9,9 @@ if (!isset($_SESSION['user_id'])) {
 }
 
 if(isset($_GET['id'])) {
-    $transaction_id = $_GET['id'];
-    $user_id = $_SESSION['user_id'];
+    $idTransaction = $_GET['id'];
 
-    if(deleteTransaction($connection, $transaction_id, $user_id)) {
+    if(deleteTransaction($connection, $idTransaction)) {
         header('Location: transactions.php?success=Transaction successfully deleted.');
         exit();
     } else {
