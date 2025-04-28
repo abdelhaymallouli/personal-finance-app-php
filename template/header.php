@@ -207,8 +207,9 @@ $currentPage = basename($_SERVER['PHP_SELF']);
         <!-- Navigation -->
         <nav class="main-nav">
     <ul>
-        <li><a href="dashboard.php" class="<?php echo ($currentPage == 'dashboard.php') ? 'active' : ''; ?>">dashboard</a></li>
-        <li><a href="transactions.php" class="<?php echo ($currentPage == 'transactions.php') ? 'active' : ''; ?>">Transaction History</a></li>
+    <li><a href="dashboard.php" class="<?php echo (basename($_SERVER['PHP_SELF']) == 'dashboard.php') ? 'active' : ''; ?>">dashboard</a></li>
+    <li><a href="transactions.php" class="<?php echo (basename($_SERVER['PHP_SELF']) == 'transactions.php') ? 'active' : ''; ?>">Transaction History</a></li>
+
     </ul>
 </nav>
 
