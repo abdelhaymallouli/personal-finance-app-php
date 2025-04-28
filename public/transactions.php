@@ -47,18 +47,11 @@ include '../template/header.php';
     <h1 class="page-title"><i class="fas fa-exchange-alt"></i> Transaction History</h1>
     
     <div class="action-bar">
-        <a href="#" class="btn btn-success">
+        <a href="add_transaction.php" class="btn btn-success">
             <i class="fas fa-plus"></i> Add Transaction
         </a>
     </div>
-        <!-- Add this just before closing </body> -->
-    <div id="transactionModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <iframe src="add_transaction.php" frameborder="0"></iframe>
-        </div>
-    </div>
-
+    
     <!-- Filter Section -->
     <div class="filter-section">
         <form method="GET" action="transactions.php" class="filter-form">
@@ -102,6 +95,9 @@ include '../template/header.php';
                 <i class="fas fa-receipt"></i>
                 <h3>No transactions found</h3>
                 <p>There are no transactions matching your filters. Try adjusting your filters or add new transactions.</p>
+                <a href="add_transaction.php" class="btn btn-primary">
+                    <i class="fas fa-plus"></i> Add First Transaction
+                </a>
             </div>
         <?php else: ?>
             <table class="transactions-table">
@@ -156,18 +152,9 @@ include '../template/header.php';
                             <td><?= htmlspecialchars($t['currency'] ?? 'USD') ?></td>
                             <td>
                                 <div class="action-buttons">
-                                <a href="#" onclick="openEditModal(<?= $t['id'] ?? 0 ?>)" class="btn btn-sm btn-edit">
+                                    <a href="edit_transactions.php?id=<?= $t['id'] ?? '' ?>" class="btn btn-sm btn-edit">
                                         <i class="fas fa-edit"></i>
                                     </a>
-
-                                    <!-- Edit Transaction Modal -->
-                                    <div id="editTransactionModal" class="modal">
-                                        <div class="modal-content">
-                                            <span class="close">&times;</span>
-                                            <iframe id="editTransactionFrame" src="" frameborder="0"></iframe>
-                                        </div>
-                                    </div>
-
                                     <a href="delete_transaction.php?id=<?= $t['id'] ?? '' ?>" 
                                        onclick="return confirm('Are you sure you want to delete this transaction?')" 
                                        class="btn btn-sm btn-delete">
@@ -189,6 +176,4 @@ include '../template/footer.php';
 ?>
 
 </body>
-<script src="../assets/js/script.js"></script>
-
 </html>
