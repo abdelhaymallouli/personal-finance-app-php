@@ -8,13 +8,13 @@ session_start();
 
 // Redirect to login if user is not logged in
 if (!isset($_SESSION['user_id'])) {
-    header('location: index.php');
+    header('location: login.php');
     exit;
 }
 
 $user_id = $_SESSION['user_id'];
 
-
+// Get the current year and month if they are provided
 $year = $_GET['year'] ?? date('Y');
 $month = $_GET['month'] ?? date('m');
 
@@ -22,15 +22,15 @@ $month = $_GET['month'] ?? date('m');
 $balance = soldUser($connection);
 
 // Get the current month summary: total income and expenses
-$totalIncomes = totalIncomesByCategory('Salaire', $connection); 
-$totalExpenses = totalExpensesByCategory('Transport', $connection); 
+$totalIncomes = totalIncomesByCategory('Salaire', $connection); // Example for income category
+$totalExpenses = totalExpensesByCategory('Transport', $connection); // Example for expense category
 
 // Calculate period change (could be profit/loss)
 $periodChange = $totalIncomes - $totalExpenses;
 
 // Get income and expenses by category
-$income_categories = ['Salaire', 'Investissement', 'Autre']; 
-$expenses_categories = ['Transport', 'Alimentation', 'Logement', 'Healthcare', 'Education', 'Clothes']; 
+$income_categories = ['Salaire', 'Investissement', 'Autre']; // Example categories
+$expenses_categories = ['Transport', 'Alimentation', 'Logement', 'Healthcare', 'Education', 'Clothes']; // Match categories in image
 
 $incomesByCategory = [];
 foreach ($income_categories as $category) {
